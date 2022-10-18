@@ -1,0 +1,29 @@
+<% @users.each do |user| %>
+<p>
+    <%= user.uid %>
+    <%= user.pass %>
+    <%= link_to '削除', user_path(user), method: :delete %>
+</p>
+<% end %>
+
+<p>
+    <%= link_to 'ここからユーザー登録', new_user_path %>
+</p>
+
+<p>
+<% if session[:login_uid] %>
+  <%= link_to 'ログアウト', top_logout_path %>
+<% else %>
+  <%= link_to 'ログイン', top_main_path %>
+<% end %>
+</p>
+
+<p>
+    <%= link_to 'ツイート一覧', tweets_path %>
+</p>
+
+<% if session[:login_uid] %>
+    ログイン中
+<% else %>
+    ログインしていません
+<% end %>
