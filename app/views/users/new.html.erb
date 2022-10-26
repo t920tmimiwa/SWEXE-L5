@@ -9,14 +9,20 @@
 
 <%= form_for @user, url: {action: :create} do |f| %>
   <%= f.label :uid, 'ユーザーID' %> 
-  <%= f.text_field :uid %><br>
-  <%= f.label :pass, 'パスワード' %> 
-  <%= f.password_field :pass %><br>
+  <%= f.text_field :uid %> 
+  <p>
+    <%= f.label :password, 'パスワード' %>
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation, 'パスワード(確認)' %>
+    <%= f.password_field :password_confirmation %>
+  </p>
   <%= f.submit '登録' %>
 <% end %>
 
 <% if session[:login_uid] %>
-    ログイン中
+  ログイン中
 <% else %>
-    ログインしていません
+  ログインしていません
 <% end %>
